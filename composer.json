@@ -1,0 +1,18 @@
+{
+  "name": "WebProxy",
+  "description": "Just another web proxy service for private use",
+  "license": "MIT",
+  "type": "open-source code",
+  "keywords": ["web", "proxy", "private"],
+  "authors": [
+    {
+      "name": "KronuS Me",
+      "email": "kronusme@gmail.com",
+      "homepage":"http://kronus.me",
+      "role":"Developer"
+    }
+  ],
+  "require": {
+    "ccampbell/chromephp":"*"
+  }
+}
