@@ -1,6 +1,6 @@
 <?php
 
-require_once('../config.php');
+require_once('config.php');
 
 class urlTest extends PHPUnit_Framework_TestCase {
 
