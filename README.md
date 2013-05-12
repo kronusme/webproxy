@@ -15,7 +15,7 @@ You just need to have a php hosting.
 
 1. Clone project.
 2. Run [composer](http://getcomposer.org/) to install components.
-3. Upload code to url site.
+3. Upload code to your site.
 4. Go to http://yousite.com/path/to/proxy/
 5. Enter url you want to navigate.
 6. Profit.
