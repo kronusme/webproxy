@@ -4,26 +4,20 @@ class html_page extends page {
     public function process() {
         $dom = str_get_html($this->_content, true, true, $this->_charset, false);
         if ($dom) {
-            $links = $dom->find('link');
-            foreach($links as $link) {
-                if ($link->href) {
-                    $link->href = $this->_link_modify($link->href);
-                }
-            }
-            $to_remove = $dom->find('script, embed, applet, iframe');
+            $to_remove = $dom->find(' embed, applet, iframe');
             foreach($to_remove as $removable) {
                 $removable->clear();
             }
-            $anchors = $dom->find('a');
-            foreach($anchors as $a) {
-                if ($a->href) {
-                    $a->href = $this->_link_modify($a->href);
+            $elements_with_href = $dom->find('*[href]');
+            foreach($elements_with_href as $element) {
+                if ($element->href) {
+                    $element->href = $this->_link_modify($element->href);
                 }
             }
-            $images = $dom->find('img');
-            foreach($images as $img) {
-                if ($img->src) {
-                    $img->src = $this->_link_modify($img->src);
+            $elements_with_src = $dom->find('*[src]');
+            foreach($elements_with_src as $element) {
+                if ($element->src) {
+                    $element->src = $this->_link_modify($element->src);
                 }
             }
             $forms = $dom->find('form');
@@ -31,6 +25,8 @@ class html_page extends page {
                 if ($form->action) {
                     $form->action = $this->_link_modify($form->action);
                 }
+                $form->method = 'post';
+                $form->innertext = '<input type="hidden" name="convert_method" value="'.($form->method?$form->method:'get').'" />'.$form->innertext;
             }
 
             $elements_with_background = $dom->find('*[background]');

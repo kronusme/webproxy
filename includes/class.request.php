@@ -36,7 +36,7 @@ class request {
     }
 
     /**
-     * Send request to Valve's servers
+     * Send request to servers
      * @access public
      * @return mixed
      */

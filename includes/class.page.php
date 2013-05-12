@@ -61,6 +61,9 @@ abstract class page {
      * @return string
      */
     protected function _link_modify($link, $encode = true) {
+        if (strpos($link, 'javascript:') !== false) {
+            return $link;
+        }
         if (strpos($link, 'http') !== false) {
             $add = '';
         }
