@@ -37,4 +37,4 @@ You just need to have a php hosting.
 
 ### Travis CI status
 
-![Travis CI Status](https://api.travis-ci.org/kronusme/webproxy.png?branch=master)
+[![Build Status](https://travis-ci.org/kronusme/webproxy.png?branch=master)](https://travis-ci.org/kronusme/webproxy)
