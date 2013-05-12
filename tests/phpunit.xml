@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <phpunit>
-    <testsuite name='Name your suite'>
+    <testsuite name='KronuSMe WebProxy'>
         <directory suffix='.php'>./</directory>
     </testsuite>
 </phpunit>
