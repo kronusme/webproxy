@@ -11,8 +11,5 @@
       "homepage":"http://kronus.me",
       "role":"Developer"
     }
-  ],
-  "require": {
-    "ccampbell/chromephp":"*"
-  }
+  ]
 }
