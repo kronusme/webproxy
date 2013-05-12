@@ -45,7 +45,7 @@ class html_page extends page {
                 }
             }
 
-            $dom->find('body', 0)->innertext = '<div style="box-shadow: 0px 0px 20px rgba(0,0,0,1);width: 90%;left: 5%; height: 40px; background-color: #ddd; border: 1px solid black; position: fixed; top: 20px;z-index: 10000000;"><input style="width: 90%; margin: 5px auto auto auto; display: block;" type="text" value="'.$_GET['url'].'" /></div>'.$dom->find('body', 0)->innertext;
+            $dom->find('body', 0)->innertext = '<div style="box-shadow: 0px 0px 20px rgba(0,0,0,1);width: 90%;left: 5%; height: 40px; background-color: #ddd; border: 1px solid black; position: fixed; top: 20px;z-index: 10000000;"><input style="width: 90%; margin: 5px auto auto auto; display: block;" type="text" value="'.$this->get_url()->raw().'" /></div>'.$dom->find('body', 0)->innertext;
             ob_start();
             echo $dom;
             return ob_get_clean();

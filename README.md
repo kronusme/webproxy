@@ -34,3 +34,7 @@ You just need to have a php hosting.
 
 1. Only GET requests.
 2. Not supported forms actions even if "get" method is used.
+
+### Travis CI status
+
+![Travis CI Status](https://api.travis-ci.org/kronusme/webproxy.png?branch=master)

@@ -53,6 +53,14 @@ abstract class page {
         return $this->_content_type;
     }
 
+    public function get_headers() {
+        return $this->_headers;
+    }
+
+    public function get_url() {
+        return $this->_url;
+    }
+
     /**
      * Modify "raw" link to "proxy" link (view.php?url=****)
      *
