@@ -1,6 +1,5 @@
 <?php
 
-require_once('config.php');
 
 class urlTest extends PHPUnit_Framework_TestCase {
 
@@ -14,7 +13,8 @@ class urlTest extends PHPUnit_Framework_TestCase {
         array('kronus.me:80?q1=1&q2=2', 'q1=1&q2=2', 'query', 5),
         array('kronus.me:80/?q1=1&q2=2', 'q1=1&q2=2', 'query', 4),
         array('kronus.me:80/?#qqq', 'qqq', 'fragment', 4),
-        array('http://kronus.me/category/cms/page/2/', '/category/cms/page/2/', 'path', 3)
+        array('http://kronus.me/category/cms/page/2/', '/category/cms/page/2/', 'path', 3),
+        array('kronus.me:80/index.php', '80', 'port', 4)
     );
 
     public function testUrlParser() {
@@ -30,15 +30,34 @@ class urlTest extends PHPUnit_Framework_TestCase {
             $this->assertEquals($test[0], $url->raw());
         }
     }
+
     public function testUrlEncodeDecode() {
         foreach($this->_url_tests as $test) {
             $this->assertEquals($test[0], url::decode(url::encode($test[0])));
         }
     }
+
     public function testUrlComponentsCount() {
         foreach($this->_url_tests as $test) {
             $url = new url($test[0]);
             $this->assertEquals($test[3], count($url->get_all_components()));
         }
+    }
+
+    public function testAssemblyUrl() {
+        $url = new url($this->_url_tests[1][0]);
+        $this->assertEquals($url->assembly(), $this->_url_tests[1][0].'/');
+
+        $url = new url($this->_url_tests[3][0]);
+        $this->assertEquals($url->assembly(), $this->_url_tests[3][0]);
+
+        $url = new url($this->_url_tests[5][0]);
+        $this->assertEquals($url->assembly(), 'http://'.$this->_url_tests[5][0]);
+
+        $url = new url($this->_url_tests[7][0]);
+        $this->assertEquals($url->assembly(), 'http://'.$this->_url_tests[7][0]);
+
+        $url = new url($this->_url_tests[10][0]);
+        $this->assertEquals($url->assembly(), 'http://'.$this->_url_tests[10][0]);
     }
 }

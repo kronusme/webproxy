@@ -59,8 +59,9 @@ class html_page extends page {
             if ($form->action) {
                 $form->action = $this->_link_modify($form->action);
             }
+            $real_form_method = $form->method;
             $form->method = 'post';
-            $form->innertext = '<input type="hidden" name="convert_method" value="'.($form->method?$form->method:'get').'" />'.$form->innertext;
+            $form->innertext = '<input type="hidden" name="convert_method" value="'.($real_form_method?$real_form_method:'get').'" />'.$form->innertext;
         }
         return $dom;
     }

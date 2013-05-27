@@ -11,6 +11,11 @@ class request {
     private $_url;
 
     /**
+     * @var array
+     */
+    private $_post;
+
+    /**
      * Get url
      * @return string
      */
@@ -29,10 +34,30 @@ class request {
     }
 
     /**
-     * @param string $url
+     * Get post-data
+     * @return array
      */
-    public function __construct($url) {
+    public function get_post() {
+        return $this->_post;
+    }
+
+    /**
+     * Set post data
+     * @param array $post
+     * @return array
+     */
+    public function set_post(array $post) {
+        $this->_post = $post;
+        return $post;
+    }
+
+    /**
+     * @param string $url
+     * @param array $post
+     */
+    public function __construct($url, array $post = null) {
         $this->_url = $url;
+        $this->_post = $post;
     }
 
     /**
@@ -42,6 +67,10 @@ class request {
      */
     public function send() {
         $ch = curl_init();
+        if (is_array($this->_post)) {
+            curl_setopt($ch, CURLOPT_POST, true);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($this->get_post()));
+        }
         curl_setopt($ch, CURLOPT_URL, $this->_url);
         //curl_setopt($ch, CURLOPT_ENCODING , "gzip");
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);

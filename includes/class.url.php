@@ -50,6 +50,45 @@ class url {
         $this->_components[(string)$component] = (string)$value;
     }
 
+    public function assembly() {
+        $url = '';
+        $scheme = $this->get('scheme');
+        if ($scheme) {
+            $url .= $scheme;
+        }
+        else {
+            $url .= 'http';
+        }
+        $url .= '://';
+        $user = $this->get('user');
+        $pass = $this->get('pass');
+        if ($user && $pass) {
+            $url .= $user.':'.$pass.'@';
+        }
+        $url .= $this->get('host');
+        $port = $this->get('port');
+        if ($port) {
+            $url .= ':'.$port;
+        }
+        $path = $this->get('path');
+        if ($path) {
+            $url .= $path;
+        }
+        $file = $this->get('file');
+        if ($file) {
+            $url .= $file;
+        }
+        $query = $this->get('query');
+        if ($query) {
+            $url .= '?'.$query;
+        }
+        $fragment = $this->get('fragment');
+        if ($fragment) {
+            $url .= '#'.$fragment;
+        }
+        return $url;
+    }
+
     public function __construct($url) {
         $url = (string)$url;
         $this->_raw_url = $url;

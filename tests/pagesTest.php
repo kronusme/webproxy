@@ -1,6 +1,5 @@
 <?php
 
-require_once('config.php');
 
 class pagesTest extends PHPUnit_Framework_TestCase {
 
