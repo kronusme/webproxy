@@ -69,7 +69,6 @@ class page_factory {
 
     private function _get(url $url) {
         $post = http_build_query($_POST);
-        ChromePhp::warn('!!!!!!!!!', $post);
         $_POST = null;
         $q = $url->get('query');
         if (is_null($q) || trim($q) === '') {
@@ -78,7 +77,6 @@ class page_factory {
         else {
             $url->set('query', $q.'&'.$post);
         }
-        ChromePhp::warn('@@@@@@@@@@', $url->assembly());
         return $url;
     }
 }

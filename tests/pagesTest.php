@@ -4,8 +4,8 @@
 class pagesTest extends PHPUnit_Framework_TestCase {
 
     private $_tests_html = array(
-        array('http://kronus.me/', 'utf-8'),
-        array('http://www.qq.com/', 'gb2312')
+        array('http://kronus.me/', 'utf-8')
+        //array('http://www.qq.com/', 'gb2312')
     );
 
     private $_tests_css = array(
@@ -28,6 +28,8 @@ class pagesTest extends PHPUnit_Framework_TestCase {
             $this->assertEquals(count($dom->find('iframe')), 0);
             $this->assertEquals(count($dom->find('embed')), 0);
             $this->assertEquals(count($dom->find('applet')), 0);
+            $this->assertType('array', $page->get_headers());
+            $this->assertGreaterThan(0, strlen($page->get_content_type()));
         }
     }
 
