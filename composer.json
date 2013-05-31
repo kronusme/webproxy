@@ -12,9 +12,6 @@
       "role":"Developer"
     }
   ],
-  "require": {
-      "ccampbell/chromephp":"*"
-  },
   "require-dev": {
       "satooshi/php-coveralls": "dev-master"
   }
