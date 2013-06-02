@@ -9,7 +9,7 @@ before_script:
   - wget http://getcomposer.org/composer.phar
   - php composer.phar install --dev --no-interaction
 
-script: phpunit -c phpunit.xml
+script: phpunit -c phpunit.xml.dist
 
 after_script:
-  - php vendor/bin/coveralls
+  - php vendor/bin/coveralls -v
