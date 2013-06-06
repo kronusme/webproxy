@@ -9,7 +9,9 @@ before_script:
   - wget http://getcomposer.org/composer.phar
   - php composer.phar install --dev --no-interaction
 
-script: vendor/bin/phpunit -c phpunit.xml.dist
+script:
+  - mkdir -p build/logs
+  - php vendor/bin/phpunit -c phpunit.xml.dist
 
 after_script:
   - curl -s https://gist.github.com/satooshi/4750401/raw > travis/ColorCLI.php
