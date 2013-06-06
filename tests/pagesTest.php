@@ -28,7 +28,7 @@ class pagesTest extends PHPUnit_Framework_TestCase {
             $this->assertEquals(count($dom->find('iframe')), 0);
             $this->assertEquals(count($dom->find('embed')), 0);
             $this->assertEquals(count($dom->find('applet')), 0);
-            $this->assertType('array', $page->get_headers());
+            $this->assertTrue(is_array($page->get_headers()));
             $this->assertGreaterThan(0, strlen($page->get_content_type()));
         }
     }
