@@ -11,3 +11,5 @@ before_script:
 
 script: vendor/bin/phpunit -c phpunit.xml.dist
 
+after_script:
+  - php composer/bin/coveralls -v
