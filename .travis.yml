@@ -9,5 +9,5 @@ before_script:
   - wget http://getcomposer.org/composer.phar
   - php composer.phar install --dev --no-interaction
 
-script: phpunit -c phpunit.xml.dist
+script: vendor/bin/phpunit -c phpunit.xml.dist
 
