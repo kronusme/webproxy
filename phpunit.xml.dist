@@ -15,11 +15,11 @@
     </testsuite>
     <filter>
         <whitelist>
-            <directory>./includes</directory>
+            <directory>./src</directory>
             <exclude>
                 <directory>./tests</directory>
                 <directory>./vendor</directory>
-                <file>./includes/simple_html_dom.php</file>
+                <file>./src/simple_html_dom.php</file>
             </exclude>
         </whitelist>
     </filter>
