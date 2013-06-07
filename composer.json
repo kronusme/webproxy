@@ -27,9 +27,7 @@
           "type": "git",
           "reference": "1.1.0"
         },
-        "bin": [
-          "phpcov.php"
-        ]
+        "bin": ["composer/bin/coveralls"]
       }
     }
   ],
