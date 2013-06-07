@@ -13,8 +13,7 @@ before_script:
 
 script:
   - mkdir -p build/logs
-  - php vendor/bin/phpcs --report=checkstyle --report-file=build/logs/checkstyle.xml --standard=build/config/phpcs.xml --ignore=*.html.php,*.config.php,*.twig.php includes
-  - php vendor/bin/phpmd includes xml build/config/phpmd.xml --reportfile build/logs/pmd.xml
+  - mkdir -p travis
   - cp ~/xdebug.ini ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/xdebug.ini
   - php vendor/bin/phpunit -c phpunit.xml.dist
   - rm ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/xdebug.ini
