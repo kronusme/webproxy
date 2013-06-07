@@ -27,7 +27,7 @@
           "type": "git",
           "reference": "1.1.0"
         },
-        "bin": ["composer/bin/coveralls"]
+        "bin": ["phpcov.php"]
       }
     }
   ],
@@ -43,5 +43,6 @@
     "theseer/fdomdocument": "dev-master",
     "squizlabs/php_codesniffer": "1.4.*@stable",
     "apigen/apigen": "2.8.*@stable"
-  }
+  },
+  "bin": ["composer/bin/coveralls"]
 }
