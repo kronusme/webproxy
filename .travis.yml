@@ -13,9 +13,9 @@ before_script:
 
 script:
   - mkdir -p build/logs
-  - output=$(php -n php-cs-fixer.phar fix -v --dry-run --level=all src); if [[ $output ]]; then while read -r line; do echo -e "\e[00;31m$line\e[00m"; done <<< "$output"; false; fi;
-  - php vendor/bin/phpcs --report=checkstyle --report-file=build/logs/checkstyle.xml --standard=build/config/phpcs.xml --ignore=*.html.php,*.config.php,*.twig.php src
-  - php vendor/bin/phpmd src xml build/config/phpmd.xml --reportfile build/logs/pmd.xml
+  - output=$(php -n php-cs-fixer.phar fix -v --dry-run --level=all includes); if [[ $output ]]; then while read -r line; do echo -e "\e[00;31m$line\e[00m"; done <<< "$output"; false; fi;
+  - php vendor/bin/phpcs --report=checkstyle --report-file=build/logs/checkstyle.xml --standard=build/config/phpcs.xml --ignore=*.html.php,*.config.php,*.twig.php includes
+  - php vendor/bin/phpmd includes xml build/config/phpmd.xml --reportfile build/logs/pmd.xml
   - cp ~/xdebug.ini ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/xdebug.ini
   - php vendor/bin/phpunit -c phpunit.xml.dist
   - rm ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/xdebug.ini
