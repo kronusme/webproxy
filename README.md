@@ -38,3 +38,4 @@ You just need to have a php hosting.
 ### Travis CI status
 
 [![Build Status](https://travis-ci.org/kronusme/webproxy.png?branch=master)](https://travis-ci.org/kronusme/webproxy)
+[![Coverage Status](https://coveralls.io/repos/kronusme/webproxy/badge.png?branch=master)](https://coveralls.io/r/kronusme/webproxy?branch=master)
