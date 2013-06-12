@@ -38,9 +38,9 @@ class pagesTest extends PHPUnit_Framework_TestCase {
             $pf = new page_factory();
             $page = $pf->get_page(new url($test[0]));
             $content = $page->process();
-            $this->assertEquals(strpos($content, 'url(http://'), false);
-            $this->assertEquals(strpos($content, 'url(\'http://'), false);
-            $this->assertEquals(strpos($content, 'url("http://'), false);
+            $this->assertFalse(strpos($content, 'url(http://'));
+            $this->assertFalse(strpos($content, 'url(\'http://'));
+            $this->assertFalse(strpos($content, 'url("http://'));
         }
     }
 

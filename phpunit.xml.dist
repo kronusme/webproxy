@@ -25,6 +25,5 @@
     </filter>
     <logging>
         <log type="coverage-clover" target="build/logs/clover.xml"/>
-        <log type="junit" target="build/logs/junit.xml" logIncompleteSkipped="false"/>
     </logging>
 </phpunit>
