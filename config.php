@@ -12,3 +12,6 @@ require_once('src/class.css_page.php');
 require_once('src/class.html_page.php');
 require_once('src/class.request.php');
 require_once('src/simple_html_dom.php');
+require_once('src/sessions.php');
+
+webproxy_session_start();

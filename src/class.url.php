@@ -109,10 +109,12 @@ class url {
     }
 
     public static function encode($url) {
-        return str_rot13(base64_encode($url));
+        //return str_rot13(base64_encode($url));
+        return str_replace('+','|',openssl_encrypt($url, 'cast5-ecb', session_id()));
     }
 
     public static function decode($string) {
-        return base64_decode(str_rot13($string));
+        //return base64_decode(str_rot13($string));
+        return openssl_decrypt(str_replace('|','+',$string), 'cast5-ecb', session_id());
     }
 }

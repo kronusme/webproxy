@@ -2,6 +2,11 @@
 
 require_once('config.php');
 
+if (!isset($_GET['url'])) {
+    header('Location: index.php');
+    die();
+}
+
 $_GET['url'] = url::decode((string)$_GET['url']);
 
 $url = new url($_GET['url']);
