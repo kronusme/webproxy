@@ -30,10 +30,6 @@ You just need to have a php hosting.
 6. Same with css-files where some properties (like background) use links.
 7. "Real" link is always shown on the page, so you can easy share it.
 
-### Not supported featues and some issues
-
-1. Only GET requests.
-2. Not supported forms actions even if "get" method is used.
 
 ### Travis CI status
 
